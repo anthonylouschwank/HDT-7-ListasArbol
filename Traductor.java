@@ -1,20 +1,18 @@
-import java.util.*;
-
 /**
- * Esta clase representa un traductor simple que utiliza un árbol de traducción
+ * Esta clase representa un traductor simple que utiliza un árbol binario de búsqueda
  * para convertir palabras de un idioma a otro.
  */
 public class Traductor {
 
-    private Map<String, String> arbolTraduccion;
+    private BinarySearchTree<String, String> arbolTraduccion;
 
     /**
      * Constructor de la clase Traductor.
      *
-     * @param arbolTraduccion un Map que contiene las traducciones donde las claves son las palabras en el idioma original
+     * @param arbolTraduccion un BinarySearchTree que contiene las traducciones donde las claves son las palabras en el idioma original
      *                        y los valores son las palabras traducidas en el idioma de destino.
      */
-    public Traductor(Map<String, String> arbolTraduccion) {
+    public Traductor(BinarySearchTree<String, String> arbolTraduccion) {
         this.arbolTraduccion = arbolTraduccion;
     }
 
@@ -30,7 +28,7 @@ public class Traductor {
         String[] palabras = oracion.split("\\s+"); // Dividir la oración en palabras
 
         for (String palabra : palabras) {
-            String traduccion = arbolTraduccion.get(palabra); // Buscar la traducción en el árbol de traducción
+            String traduccion = arbolTraduccion.search(palabra); // Buscar la traducción en el árbol de traducción
             if (traduccion != null) {
                 resultado.append("*").append(traduccion).append("*").append(" "); // Agregar la traducción con asteriscos
             } else {
