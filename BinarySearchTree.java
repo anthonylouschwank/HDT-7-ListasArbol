@@ -1,9 +1,6 @@
 /**
- * Esta clase representa un árbol binario de búsqueda (BST por sus siglas en inglés).
- * Un BST organiza sus nodos de manera que para cada nodo, todos los nodos en su
- * subárbol izquierdo tienen claves menores y todos los nodos en su subárbol derecho
- * tienen claves mayores.
- *
+ * Estructua de Arbol Binario que puede insertar y buscar nuevos datos
+ * 
  * @param <K> el tipo de las claves almacenadas en el árbol (debe ser comparable).
  * @param <V> el tipo de los valores asociados a las claves.
  */
