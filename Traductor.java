@@ -1,17 +1,34 @@
 import java.util.*;
 
+/**
+ * Esta clase representa un traductor simple que utiliza un árbol de traducción
+ * para convertir palabras de un idioma a otro.
+ */
 public class Traductor {
 
     private Map<String, String> arbolTraduccion;
 
+    /**
+     * Constructor de la clase Traductor.
+     *
+     * @param arbolTraduccion un Map que contiene las traducciones donde las claves son las palabras en el idioma original
+     *                        y los valores son las palabras traducidas en el idioma de destino.
+     */
     public Traductor(Map<String, String> arbolTraduccion) {
         this.arbolTraduccion = arbolTraduccion;
     }
 
+    /**
+     * Traduce una oración del idioma original al idioma de destino utilizando el árbol de traducción proporcionado.
+     *
+     * @param oracion la oración que se desea traducir.
+     * @return la oración traducida, donde las palabras traducidas están rodeadas por asteriscos (*) y las palabras
+     *         no traducidas permanecen sin cambios.
+     */
     public String traducirOracion(String oracion) {
         StringBuilder resultado = new StringBuilder();
         String[] palabras = oracion.split("\\s+"); // Dividir la oración en palabras
-    
+
         for (String palabra : palabras) {
             String traduccion = arbolTraduccion.get(palabra); // Buscar la traducción en el árbol de traducción
             if (traduccion != null) {
@@ -20,18 +37,7 @@ public class Traductor {
                 resultado.append(palabra).append(" "); // Agregar la palabra original sin asteriscos
             }
         }
-    
+
         return resultado.toString().trim(); // Eliminar el espacio extra al final y devolver la oración traducida
-    }
-
-    public static void main(String[] args) {
-        // Ejemplo de uso
-        Map<String, String> arbolTraduccion = new HashMap<>();
-        arbolTraduccion.put("have", "han");
-        arbolTraduccion.put("working", "trabajando");
-
-        Traductor traductor = new Traductor(arbolTraduccion);
-        String oracionTraducida = traductor.traducirOracion("I have been working all day");
-        System.out.println(oracionTraducida); // Imprimirá: "I han been trabajando all day"
     }
 }
