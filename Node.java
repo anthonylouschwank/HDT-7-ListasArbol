@@ -11,5 +11,4 @@ class Node<K, V> {
         this.right = null;
     }
     
-    // Métodos getter y setter según sea necesario
 }
